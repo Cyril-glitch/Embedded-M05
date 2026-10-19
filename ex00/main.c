@@ -6,7 +6,7 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 10:52:29 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/10/19 16:59:36 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/10/19 19:09:35 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ ADMUX = ADC Multiplexer Selection Register
 REFS = Reference Selection Bits
 ADEN = ADC Enable
 
-
 */
 
 void init_adc()
 {
-    /* On determine la valeur de comparaison */
+    /* On determine la valeur de reference ici AVCC (Alimentation de la board) */
     SET(ADMUX,REFS0);
     
-    /* On extrait les 8 bits les plus significatifs du resultat de la conversion (10 bit de base) */
+    /* On decale les 8 bits les plus significatifs du resultat de la conversion dans ADCH*/
     SET(ADMUX,ADLAR);
 
+    /* On prescale a 128 pour avoir une frequence horloge 125000 Hz*/
     ADCSRA |= (1U << ADPS2) | (1U << ADPS1) | (1U << ADPS0);
 
-    /* active le convertisseur*/
+    /* active le convertisseur */
     SET(ADCSRA, ADEN);
 }
 
@@ -65,6 +65,4 @@ int main()
         uart_printstr("\r\n");
         _delay_ms(20);
     }
-
-
 }
