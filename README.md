@@ -1,7 +1,7 @@
 # Embedded-M05 ⚡
 
 <p align="center">
-  <img src="../Embedded-M00/assets/atmega328p.png" alt="ATmega328P board illustration" width="330" height="170" style="border-radius: 12px;" />
+  <img src="assets/atmega328p.png" alt="ATmega328P board illustration" width="330" height="170" style="border-radius: 12px;" />
 </p>
 
 This module introduces analog-to-digital conversion and sensor reading on AVR microcontrollers. It focuses on the ADC peripheral, conversion timing, and the transmission of measured values to a host system for monitoring or debugging.
