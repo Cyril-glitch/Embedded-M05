@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "adc.h"
+#include "../inc/adc.h"
 
-void init_adc_8bits(void)
+void init_adc(void)
 { 
     /* On determine la valeur de reference ici AVCC (Alimentation de la board) */
     SET(ADMUX,REFS0);
 
-    /* On determine les entree qui seront converties*/
-    SET(ADMUX, MUX1);
     
     /* On decale les 8 bits les plus significatifs du resultat de la conversion dans ADCH*/
     SET(ADMUX,ADLAR);

@@ -16,7 +16,7 @@
 #include "common.h"
 #include "bit_status.h"
 
-void init_adc_8bits(void);
+void init_adc(void);
 uint8_t read_adc(uint8_t channel);
 
 #endif

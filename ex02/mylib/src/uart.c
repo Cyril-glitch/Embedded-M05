@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "uart.h"
+#include "../inc/uart.h"
 
 void uart_init(void)
 {
@@ -49,17 +49,16 @@ void uart_printstr(const char *str)
 
 void uart_putnbr(uint32_t nbr)
 {
-    if (nbr > 9)
+    if (nbr >= 10)
         uart_putnbr(nbr / 10);
     uart_tx((nbr % 10) + '0');
 }
 
 void uart_puthex(uint32_t nbr)
 {
-    char hex[] = "0123456789ABCDEF";
-    uint32_t n;
+    char hex[] = "0123456789abcdef";
 
-    if (nbr > 15)
+    if (nbr >= 16)
         uart_puthex(nbr / 16);
     uart_tx(hex[nbr % 16]);
 }

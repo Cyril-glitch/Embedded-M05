@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "watchdog.h"
+#include "../inc/watchdog.h"
 
 void watchdog_2s(void)
 {

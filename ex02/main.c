@@ -24,21 +24,21 @@ ADSC = ADC Start Conversion
 
 void display(void)
 {
-    uint8_t pot = read_adc(0);
-    uint8_t ldr = read_adc(1);
-    uint8_t ntc = read_adc(2);
+    uint8_t pot = read_adc_10bits(0);
+    uint8_t ldr = read_adc_10bits(1);
+    uint8_t ntc = read_adc_10bits(2);
 
     uart_putnbr(pot);
-    uart_tx(", "); 
+    uart_printstr(", ");
     uart_puthex(ldr);
-    uart_tx(", ");
-    uart_puthex(ldr);
+    uart_printstr(", ");
+    uart_puthex(ntc);
     uart_printstr("\r\n");
 }
 
 int main(void)
 {
-    init_adc_8bits();
+    init_adc_10bits();
     uart_init();
 
     while (1)

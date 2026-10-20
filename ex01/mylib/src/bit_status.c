@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bit_status.h"
+#include "../inc/bit_status.h"
 
 int is_set(uint8_t reg, int pos)
 {
